@@ -1,0 +1,25 @@
+ServerSignature Off
+
+<IfModule mod_headers.c>
+    Header unset Server
+    Header unset X-Powered-By
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-Frame-Options "SAMEORIGIN"
+    Header set X-XSS-Protection "1; mode=block"
+    Header set Referrer-Policy "strict-origin-when-cross-origin"
+    Header set Permissions-Policy "geolocation=(), microphone=(), camera=()"
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteCond %{REQUEST_METHOD} ^(TRACE|TRACK|OPTIONS|DELETE) [NC]
+    RewriteRule .* - [F,L]
+</IfModule>
+
+Options -Indexes
+
+<FilesMatch "\.(htaccess|htpasswd|ini|log|sh|sql|conf)$">
+    Order Allow,Deny
+    Deny from all
+</FilesMatch>
+
