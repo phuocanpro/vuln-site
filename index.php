@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once 'security_headers.php';
 ?>
 <!DOCTYPE html>
 <html lang="vi">

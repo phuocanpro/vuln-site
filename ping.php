@@ -1,5 +1,6 @@
 <?php
 session_start();
+require_once 'security_headers.php';
 
 $host = $_GET['host'] ?? '';
 $output = '';

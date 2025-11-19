@@ -1,4 +1,6 @@
 <?php
+require_once 'security_headers.php';
+
 $host = 'localhost';
 $dbname = 'vuln_db';
 $username = 'root';
